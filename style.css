@@ -1,0 +1,21 @@
+@import 'node_modules/wikimedia-ui-base/wikimedia-ui-base.css';
+
+body {
+  background-color: var( --wmui-color-base80 );
+  font-size: 0.9rem;
+}
+
+header {
+  padding-top: 6rem;
+}
+
+header h1 {
+  letter-spacing: 1px;
+}
+
+main {
+  background: var( --wmui-color-base100 );
+}
+
+/* Bootstrap override */
+ a { color: var( --wmui-color-accent50 ); }

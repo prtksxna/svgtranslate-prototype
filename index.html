@@ -5,10 +5,43 @@
     <title>SVG Translate</title>
 
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/oojs/dist/oojs.min.js"></script>
+    <script src="node_modules/oojs-ui/dist/oojs-ui.min.js"></script>
+    <script src="node_modules/oojs-ui/dist/oojs-ui-wikimediaui.min.js"></script>
+    <link rel="stylesheet" href="node_modules/oojs-ui/dist/oojs-ui-wikimediaui.css">
   </head>
   <body>
-    <div class="container">
+    <header class="container">
       <h1>SVG Translate</h1>
+      <p>Help translate text labels on SVG files. Pick a file on commons to get started.</p>
+
+      <p>This feature is in early testing. <a href="https://meta.wikimedia.org/wiki/Community_Tech/SVG_translation">Learn more & leave feedback</a>!</p>
+    </header>
+
+    <div class="container">
+      <main id="select-form">
+      </main>
     </div>
+
+    <footer class="row mt-auto pt-2 pb-2 justify-content-center">
+      <div class="col-xl-10 col-sm-8">
+        <div class="row align-items-baseline justify-content-between">
+          <div class="col-sm-auto align-self-left">
+            <a href="https://tools.wmflabs.org/">
+              <img class="toolforge-logo" src="https://tools-static.wmflabs.org/toolforge/banners/Powered-by-Toolforge.png" alt="Powered by Wikimedia Toolforge">
+            </a>
+          </div>
+          <div class="col-sm-auto text-right">
+            <h6>Made by the Wikimedia Foundation's <a href="https://meta.wikimedia.org/wiki/Community_health_initiative/The_Team">Anti-Harassment Tools team</a>.</h6>
+            <h6>Licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a><span> – </span>View on <a href="https://github.com/wikimedia/InteractionTimeline">GitHub</a><span> – </span><a href="https://wikimediafoundation.org/wiki/Privacy_policy">Privacy policy</a><span> – </span><a href="https://phabricator.wikimedia.org/project/board/3156/">Report a bug</a></h6>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="ui.js"></script>
   </body>
 </html>
