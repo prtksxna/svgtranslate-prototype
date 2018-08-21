@@ -14,33 +14,48 @@
     <link rel="stylesheet" href="node_modules/oojs-ui/dist/oojs-ui-wikimediaui.css">
   </head>
   <body>
-    <header class="container">
-      <h1>SVG Translate</h1>
-      <p>Help translate text labels on SVG files. Pick a file on commons to get started.</p>
+    <div class="container flex-column">
 
-      <p>This feature is in early testing. <a href="https://meta.wikimedia.org/wiki/Community_Tech/SVG_translation">Learn more & leave feedback</a>!</p>
-    </header>
+      <div class="row justify-content-center header pt-5">
+        <div class="col-xl-10 col-sm-8 pt-5">
+          <div class="row">
+            <header class="col">
+              <h1>SVG Translate</h1>
+              <p>Help translate text labels on SVG files. Pick a file on commons to get started.</p>
 
-    <div class="container">
-      <main id="select-form">
-      </main>
-    </div>
-
-    <footer class="row mt-auto pt-2 pb-2 justify-content-center">
-      <div class="col-xl-10 col-sm-8">
-        <div class="row align-items-baseline justify-content-between">
-          <div class="col-sm-auto align-self-left">
-            <a href="https://tools.wmflabs.org/">
-              <img class="toolforge-logo" src="https://tools-static.wmflabs.org/toolforge/banners/Powered-by-Toolforge.png" alt="Powered by Wikimedia Toolforge">
-            </a>
-          </div>
-          <div class="col-sm-auto text-right">
-            <h6>Made by the Wikimedia Foundation's <a href="https://meta.wikimedia.org/wiki/Community_health_initiative/The_Team">Anti-Harassment Tools team</a>.</h6>
-            <h6>Licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a><span> – </span>View on <a href="https://github.com/wikimedia/InteractionTimeline">GitHub</a><span> – </span><a href="https://wikimediafoundation.org/wiki/Privacy_policy">Privacy policy</a><span> – </span><a href="https://phabricator.wikimedia.org/project/board/3156/">Report a bug</a></h6>
+              <p>This feature is in early testing. <a href="https://meta.wikimedia.org/wiki/Community_Tech/SVG_translation">Learn more & leave feedback</a>!</p>
+            </header>
+            <nav class="col">
+              <a href="#">Login</a>
+            </nav>
           </div>
         </div>
       </div>
-    </footer>
+
+
+      <div class="tool row justify-content-center header mt-4">
+        <div class="col-xl-10 col-sm-8 pt-5 pb-5">
+          <main id="select-form"></main>
+        </div>
+      </div>
+
+      <footer class="row mt-5 pt-2 pb-2 justify-content-center">
+        <div class="col-xl-10 col-sm-8">
+          <div class="row align-items-baseline justify-content-between">
+            <div class="col-sm-auto align-self-left">
+              <a href="https://tools.wmflabs.org/">
+                <img class="toolforge-logo" src="https://tools-static.wmflabs.org/toolforge/banners/Powered-by-Toolforge.png" alt="Powered by Wikimedia Toolforge">
+              </a>
+            </div>
+            <div class="col-sm-auto text-right">
+              <p>Made by the Wikimedia Foundation's <a href="https://meta.wikimedia.org/wiki/Community_Tech">Community Tech team</a>.</p>
+              <p>Licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPLv3</a><span> – </span>View on <a href="https://github.com/wikimedia/SVGTranslate">GitHub</a><span> – </span><a href="https://foundation.wikimedia.org/wiki/Non-wiki_privacy_policy">Privacy policy</a><span> – </span><a href="https://phabricator.wikimedia.org/maniphest/task/edit/form/1/?title=%5BBUG%5D%20...&description=%3D%3D%3D%3D%20What%20is%20the%20problem%3F%0D%0A%0D%0A%0D%0A%3D%3D%3D%3D%20Steps%20to%20reproduce%20problem%0D%0A1.%20%0D%0A2.%0D%0A3.%0D%0A%0D%0A**Expected%20behavior%3A**%0D%0A**Observed%20behavior%3A**%20%0D%0A%0D%0A%3D%3D%3D%3D%20Environment%0D%0A**Operating%20system%3A**%0D%0A**Browser%3A**%0D%0A**Wiki(s)%3A**%0D%0A**Editor%2C%20if%20applicable%3A**%0D%0A%0D%0A%3D%3D%3D%3D%20Screenshots%20(if%20applicable)%3A%0D%0A&projects=community-tech&priority=triage">Report a bug</a></p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
 
     <script src="ui.js"></script>
   </body>

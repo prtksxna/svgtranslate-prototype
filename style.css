@@ -1,20 +1,36 @@
 @import 'node_modules/wikimedia-ui-base/wikimedia-ui-base.css';
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   background-color: var( --wmui-color-base80 );
   font-size: 0.9rem;
 }
 
-header {
-  padding-top: 6rem;
-}
-
 header h1 {
+  font-size: 2.25rem;
   letter-spacing: 1px;
 }
 
-main {
+nav {
+  text-align: right;
+}
+
+.tool {
   background: var( --wmui-color-base100 );
+}
+
+.toolforge-logo {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	filter: gray;
+ 	&:hover {
+		-webkit-filter: none;
+		filter: none;
+	}
 }
 
 /* Bootstrap override */
