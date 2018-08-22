@@ -34,5 +34,10 @@ nav {
 	}
 }
 
+#svg_object {
+  position: sticky;
+  top: 3rem;
+}
+
 /* Bootstrap override */
  a { color: var( --wmui-color-accent50 ); }
