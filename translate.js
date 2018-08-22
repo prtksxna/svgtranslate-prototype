@@ -85,6 +85,8 @@ function addButtons() {
     disabled: true
   } );
 
+  window.upload.on( 'click', showUploadDialog );
+
   if ( window.localStorage.getItem( 'logged') !== 'in' ) {
       window.upload.setDisabled( true );
       window.upload.setLabel( 'Login to Upload to Commons')
@@ -94,12 +96,36 @@ function addButtons() {
 }
 
 function enableUploadButton() {
-  console.log('e');
   if ( validateAll() ) {
     window.upload.setDisabled( false );
   } else {
     window.upload.setDisabled( true );
   }
+}
+
+function showUploadDialog() {
+  var messageDialog = new OO.ui.MessageDialog();
+var windowManager = new OO.ui.WindowManager();
+$( 'body' ).append( windowManager.$element );
+windowManager.addWindows( [ messageDialog ] );
+
+// Configure the message dialog.
+windowManager.openWindow( messageDialog, {
+  title: 'Thank you!',
+  message: 'Your translations has been uploaded.',
+  actions: [
+    { label: 'See file on Commons', action: 'commons', icon: 'logoWikimediaCommons' },
+    { label: 'Translate another', action: 'translate', icon: 'language', flags:['pogressive'] },
+  ],
+} ).closed.then( function ( data ) {
+  if ( data && data.action ) {
+    if ( data.action === 'translate') {
+      window.location = 'index.html';
+    } else {
+      window.location = 'https://commons.wikimedia.org/wiki/File:100_Years_War_France_1435.svg';
+    }
+  }
+} );
 }
 
 function validateAll() {

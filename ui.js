@@ -1,13 +1,21 @@
 // Select file form
+var translateButton = new OO.ui.ButtonWidget( {
+  label: 'Translate',
+  flags: [ 'primary', 'progressive' ]
+} );
+
+translateButton.on( 'click', function () {
+    window.location="translate.html"
+} );
+
 var form = new OO.ui.ActionFieldLayout(
-  new OO.ui.TextInputWidget(),
-  new OO.ui.ButtonWidget( {
-    label: 'Translate',
-    flags: [ 'primary', 'progressive' ]
-  } ),
+  new OO.ui.TextInputWidget({
+    placeholder: '100 Years War France 1435.svg'
+  }),
+  translateButton,
   {
     align: 'top',
-    label: 'Select file to translate',
+    label: 'File name from Commons:',
     help: 'Type a file name from Commons',
 } )
 $( '#select-form' ).append( form.$element );
