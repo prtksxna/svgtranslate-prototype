@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="node_modules/oojs-ui/dist/oojs-ui-wikimediaui-icons-user.css">
     <link rel="stylesheet" href="node_modules/oojs-ui/dist/oojs-ui-wikimediaui-icons-interactions.css">
     <link rel="stylesheet" href="node_modules/oojs-ui/dist/oojs-ui-wikimediaui-icons-editing-advanced.css">
+    <link rel="stylesheet" href="node_modules/oojs-ui/dist/oojs-ui-wikimediaui-icons-content.css">
+    <link rel="stylesheet" href="node_modules/oojs-ui/dist/oojs-ui-wikimediaui-icons-wikimedia.css">
   </head>
   <body>
     <div class="container">
@@ -23,10 +25,9 @@
         <div class="col-xl-10 col-sm-8 pt-5">
           <div class="row">
             <header class="col">
+              <h3><a href="index.html">&larr; SVG Translate</a></h3>
               <h1>File:100 Years War France 1435.svg</h1>
               <p>See on <a href="https://commons.wikimedia.org/wiki/File:100_Years_War_France_1435.svg">Commons</a>.</p>
-
-              <p>Translating from English to Hindi.</p>
             </header>
             <nav class="col">
               <a href="#" id="login">Login</a>
@@ -37,10 +38,16 @@
 
 
       <div class="tool row justify-content-center header mt-4">
-        <div class="col-xl-5 col-sm-4 pt-5 pb-5">
+        <div class="col-xl-5 col-sm-4 pt-5">
+          <p>Translating from English to Hindi.</p>
+        </div>
+        <div class="col-xl-5 col-sm-4 pt-5" id="button-holder">
+
+        </div>
+        <div class="col-xl-5 col-sm-4 pt-2 pb-5">
           <main id="translation-form"></main>
         </div>
-        <div class="col-xl-5 col-sm-4 pt-5 pb-5">
+        <div class="col-xl-5 col-sm-4 pt-2 pb-5">
           <object id="svg_object" data="test.svg" type="image/svg+xml" width="100%">
             No SVG support
           </object>

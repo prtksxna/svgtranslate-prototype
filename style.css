@@ -39,5 +39,10 @@ nav {
   top: 3rem;
 }
 
+#button-holder > span {
+  float: right;
+  margin-left: 0.5rem;
+}
+
 /* Bootstrap override */
  a { color: var( --wmui-color-accent50 ); }
