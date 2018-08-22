@@ -44,5 +44,13 @@ nav {
   margin-left: 0.5rem;
 }
 
+.oo-ui-dropdownWidget {
+  width: 10rem !important;
+}
+
+#lang-to > div {
+  float: right;
+}
+
 /* Bootstrap override */
  a { color: var( --wmui-color-accent50 ); }

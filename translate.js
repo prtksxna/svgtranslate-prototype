@@ -31,6 +31,7 @@ function showTranslationFields( svg ) {
     } );
 
     addButtons();
+    addLangSelector();
 }
 
 function addTranslationField( label, id ) {
@@ -44,6 +45,8 @@ function addTranslationField( label, id ) {
     } else {
       el.innerHTML = v;
     }
+
+    enableUploadButton();
   });
 
   window.textInputs.push( text );
@@ -75,18 +78,28 @@ function addButtons() {
     document.body.removeChild(downloadLink);
   })
 
-  var upload = new OO.ui.ButtonWidget( {
+  window.upload = new OO.ui.ButtonWidget( {
     label: 'Upload to Commons',
     icon: 'logoWikimediaCommons',
-    flags: ['primary', 'progressive']
+    flags: ['primary', 'progressive'],
+    disabled: true
   } );
 
   if ( window.localStorage.getItem( 'logged') !== 'in' ) {
-      upload.setDisabled( true );
-      upload.setLabel( 'Login to Upload to Commons')
+      window.upload.setDisabled( true );
+      window.upload.setLabel( 'Login to Upload to Commons')
   }
 
-  $( '#button-holder').append( upload.$element, download.$element);
+  $( '#button-holder').append( window.upload.$element, download.$element);
+}
+
+function enableUploadButton() {
+  console.log('e');
+  if ( validateAll() ) {
+    window.upload.setDisabled( false );
+  } else {
+    window.upload.setDisabled( true );
+  }
 }
 
 function validateAll() {
@@ -97,4 +110,53 @@ function validateAll() {
     }
   });
   return ok;
+}
+
+function addLangSelector() {
+  var items = [
+    new OO.ui.MenuSectionOptionWidget( {
+      label: 'Recently used'
+    } ),
+    new OO.ui.MenuOptionWidget( {
+      data: 'hi',
+      label: 'Hindi',
+    } ),
+    new OO.ui.MenuOptionWidget( {
+      data: 'en',
+      label: 'English',
+    } ),
+    new OO.ui.MenuSectionOptionWidget( {
+      label: 'Others'
+    } ),
+    new OO.ui.MenuOptionWidget( {
+      data: 'ur',
+      label: 'Urdu'
+    } ),
+    new OO.ui.MenuOptionWidget( {
+      data: 'ja',
+      label: 'Japanese'
+    } ),
+    new OO.ui.MenuOptionWidget( {
+      data: 'it',
+      label: 'Italian'
+    } )
+  ];
+
+  var from = new OO.ui.DropdownWidget( {
+    label: 'Select one',
+    menu: { items: items }
+  } );
+
+  var to = new OO.ui.DropdownWidget( {
+    label: 'Select one',
+    menu: { items: items }
+  } );
+
+
+  from.getMenu().selectItemByData( 'en');
+  to.getMenu().selectItemByData( 'hi');
+
+  $('#lang-from').append( from.$element );
+  $('#lang-to').append( to.$element );
+
 }
