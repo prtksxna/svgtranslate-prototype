@@ -100,7 +100,7 @@ function addButtons() {
     disabled: true
   } );
 
-  window.upload.on( 'click', showUploadDialog );
+  window.upload.on( 'click', uploadClick );
 
   if ( window.localStorage.getItem( 'logged') !== 'in' ) {
       window.upload.setDisabled( true );
@@ -118,7 +118,19 @@ function enableUploadButton() {
   }
 }
 
+function uploadClick() {
+  if ( window.localStorage.getItem( 'logged') !== 'in' ) {
+    OO.ui.confirm( 'You will be redirected to Commons in order to confirm your indentity. SVG Translate will use this to upload your translations.' ).done( function () {
+      window.upload.setLabel('Upload to Commons')
+      showUploadDialog();
+    });
+  } else {
+    showUploadDialog();
+  }
+}
+
 function showUploadDialog() {
+  OO.ui.MessageDialog.static.escapable = false;
   var messageDialog = new OO.ui.MessageDialog();
 var windowManager = new OO.ui.WindowManager();
 $( 'body' ).append( windowManager.$element );
@@ -154,7 +166,6 @@ function validateAll() {
     }
   });
 
-  console.log( done, window.progressTotal)
   window.progressField.setLabel( done + ' of ' + window.progressTotal + ' translations')
   window.progress.setProgress( ( ( done * 1.0 ) / window.progressTotal ) * 100);
 
