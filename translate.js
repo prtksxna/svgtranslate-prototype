@@ -139,13 +139,9 @@ function validateAll() {
 }
 
 function addLangSelector() {
-  var items = [
+  var fromItems = [
     new OO.ui.MenuSectionOptionWidget( {
       label: 'Recently used'
-    } ),
-    new OO.ui.MenuOptionWidget( {
-      data: 'hi',
-      label: 'Hindi',
     } ),
     new OO.ui.MenuOptionWidget( {
       data: 'en',
@@ -162,20 +158,44 @@ function addLangSelector() {
       data: 'ja',
       label: 'Japanese'
     } ),
+  ];
+
+  var from = new OO.ui.DropdownWidget( {
+    label: 'Select one',
+    menu: { items: fromItems }
+  } );
+
+  var toItems = [
+    new OO.ui.MenuSectionOptionWidget( {
+      label: 'Recently used'
+    } ),
+    new OO.ui.MenuOptionWidget( {
+      data: 'hi',
+      label: 'Hindi',
+    } ),
+    new OO.ui.MenuSectionOptionWidget( {
+      label: 'Already translated'
+    } ),
+    new OO.ui.MenuOptionWidget( {
+      data: 'ur',
+      label: 'Urdu'
+    } ),
+    new OO.ui.MenuOptionWidget( {
+      data: 'ja',
+      label: 'Japanese'
+    } ),
+    new OO.ui.MenuSectionOptionWidget( {
+      label: 'Others'
+    } ),
     new OO.ui.MenuOptionWidget( {
       data: 'it',
       label: 'Italian'
     } )
   ];
 
-  var from = new OO.ui.DropdownWidget( {
-    label: 'Select one',
-    menu: { items: items }
-  } );
-
   var to = new OO.ui.DropdownWidget( {
     label: 'Select one',
-    menu: { items: items }
+    menu: { items: toItems }
   } );
 
 
