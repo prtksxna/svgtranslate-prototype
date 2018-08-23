@@ -34,9 +34,9 @@ nav {
 	}
 }
 
-#svg_object {
+#right-col {
   position: sticky;
-  top: 3rem;
+  top: 1rem;
 }
 
 #button-holder > span {
