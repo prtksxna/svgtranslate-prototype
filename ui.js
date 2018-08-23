@@ -42,7 +42,7 @@ showAccountMenu = function () {
 
 $( '#login' ).on( 'click', function () {
   var menu = $( this ).parent();
-  OO.ui.confirm( 'You will be redirected to Commons in order to confirm your indentity. Montage will not publish anything on Wikimedia projects using your account.' ).done( function () {
+  OO.ui.confirm( 'You will be redirected to Commons in order to confirm your indentity. SVG Translate will use this to upload your translations.' ).done( function () {
     window.localStorage.setItem( 'logged', 'in' );
     window.location = window.location.pathname;
     showAccountMenu();
