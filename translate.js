@@ -22,16 +22,31 @@ function showTranslationFields( svg ) {
       tspans = tspans.concat( text_tspans )
     } );
 
+    var nOfTranslations = 0;
+
     tspans.forEach( function ( tspan ) {
       if ( tspan === 'hr' ) {
         $( '#translation-form').append( $('<hr>'));
       } else {
         addTranslationField( tspan.innerHTML, tspan.id );
+        nOfTranslations++
       }
     } );
 
     addButtons();
     addLangSelector();
+    addProgressBar( nOfTranslations );
+}
+
+function addProgressBar( total) {
+  window.progress = new OO.ui.ProgressBarWidget( { progress: 0 } );
+  window.progressTotal = total;
+  window.progressField = new OO.ui.FieldLayout( window.progress, {
+    label: '0 of '+total+' translations',
+    align: 'top'
+  } );
+
+  $( '#progress-holder').append( window.progressField.$element );
 }
 
 function addTranslationField( label, id ) {
@@ -130,11 +145,19 @@ windowManager.openWindow( messageDialog, {
 
 function validateAll() {
   var ok = true;
+  var done = 0;
   window.textInputs.forEach( function (t) {
     if ( t.getValue() === '') {
       ok = false;
+    } else {
+      done++;
     }
   });
+
+  console.log( done, window.progressTotal)
+  window.progressField.setLabel( done + ' of ' + window.progressTotal + ' translations')
+  window.progress.setProgress( ( ( done * 1.0 ) / window.progressTotal ) * 100);
+
   return ok;
 }
 
