@@ -194,6 +194,18 @@ function validateAll() {
   return ok;
 }
 
+function getN() {
+  var done = 0;
+  window.textInputs.forEach( function (t) {
+    if ( t.getValue() === '') {
+      ok = false;
+    } else {
+      done++;
+    }
+  });
+  return done;
+}
+
 function addLangSelector() {
   var fromItems = [
     new OO.ui.MenuSectionOptionWidget( {
@@ -257,6 +269,16 @@ function addLangSelector() {
 
   from.getMenu().selectItemByData( 'en');
   to.getMenu().selectItemByData( 'hi');
+
+  to.getMenu().on('choose', function () {
+    if ( getN() > 0 ) {
+      OO.ui.confirm( 'Switching to another language will lose the '+getN()+' translation(s) you\'ve already made. Are you sure you want to continue?' ).done(function () {
+        window.textInputs.forEach( function (t) {
+          t.setValue('');
+        });
+      });
+    }
+  })
 
   $('#lang-from').append( from.$element );
   $('#lang-to').append( to.$element );
