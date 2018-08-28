@@ -174,7 +174,19 @@ SettingsDialog.prototype.getSettingsElement = function () {
     }
   )
 
-  return [ toolField.$element, field.$element ];
+  var defaultQ = new OO.ui.FieldLayout(
+      new OO.ui.ToggleSwitchWidget({
+        value: true
+      }), {
+      align: 'top',
+      label: 'Ask about SVG\'s default language:',
+      help: "The tool will occasionally ask you what the default language is.",
+      helpInline: true
+    }
+  )
+
+
+  return [ toolField.$element, field.$element, defaultQ.$element ];
 }
 
 SettingsDialog.prototype.getActionProcess = function ( action ) {
