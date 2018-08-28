@@ -161,12 +161,15 @@ windowManager.openWindow( messageDialog, {
   message: 'Your translations has been uploaded.',
   actions: [
     { label: 'See file on Commons', action: 'commons', icon: 'logoWikimediaCommons' },
-    { label: 'Translate another', action: 'translate', icon: 'language', flags:['pogressive'] },
+    { label: 'Translate to another language', action: 'lang', icon: 'language', flags:['pogressive'] },
+    { label: 'Translate another image', action: 'translate', icon: 'image', flags:['pogressive'] },
   ],
 } ).closed.then( function ( data ) {
   if ( data && data.action ) {
     if ( data.action === 'translate') {
       window.location = 'index.html';
+    } else if (data.action === 'lang') {
+      window.location = 'translate.html';
     } else {
       window.location = 'https://commons.wikimedia.org/wiki/File:100_Years_War_France_1435.svg';
     }
