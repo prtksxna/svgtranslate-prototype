@@ -74,6 +74,38 @@ nav {
   position: fixed;
 }
 
+.tutorial {
+  background: transparent;
+  border-radius: 2px;
+  border: 1px solid var( --wmui-color-base50 );
+}
+
+.tutorial .close {
+  display: block;
+  margin-top: 10px;
+}
+
+.tutorial h5 span {
+  display: block;
+  float: right;
+  color: var( --wmui-color-accent30 );
+  font-size: 2rem;
+  margin-top: 10px;
+  padding-right: 15px;
+}
+
+.tutorial p{
+  margin-top: -4px;
+  color: var( --wmui-color-base20 );
+}
+
+.tutorial img {
+  float: left;
+  height: 50px;
+  margin-right: 15px;
+}
+
+/* OOUI override */
 .oo-ui-progressBarWidget{
   margin: 0;
   padding: 0;
