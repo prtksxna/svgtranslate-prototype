@@ -1,3 +1,8 @@
+// close tutorial
+$('.close').on('click', function () {
+  $('.tutorial').slideUp();
+})
+
 // Select file form
 var translateButton = new OO.ui.ButtonWidget( {
   label: 'Translate',
