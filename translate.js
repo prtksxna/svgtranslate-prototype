@@ -73,6 +73,15 @@ function addTranslationField( label, id ) {
     enableUploadButton();
   });
 
+
+  text.$input.on('focus', function () {
+    el.style.textShadow = '0 0 10px red';
+  });
+
+  text.$input.on('blur', function () {
+    el.style.textShadow = '';
+  })
+
   window.textInputs.push( text );
 
   var field = new OO.ui.FieldLayout(
