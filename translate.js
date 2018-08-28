@@ -28,7 +28,16 @@ function showTranslationFields( svg ) {
       if ( tspan === 'hr' ) {
         $( '#translation-form').append( $('<hr>'));
       } else {
-        addTranslationField( tspan.innerHTML, tspan.id );
+        var field = addTranslationField( tspan.innerHTML, tspan.id );
+        tspan.addEventListener( 'mouseover', function () {
+          $( field ).find('input').css( 'background-color', '#fef6e7');
+        })
+        tspan.addEventListener( 'mouseout', function () {
+          $( field ).find('input').css( 'background-color', '#fff');
+        })
+        tspan.addEventListener( 'click', function () {
+          $( field ).find('input').focus();
+        })
         nOfTranslations++
       }
     } );
@@ -73,6 +82,7 @@ function addTranslationField( label, id ) {
   );
 
   $( '#translation-form').append( field.$element);
+  return field.$element;
 }
 
 function addButtons() {
