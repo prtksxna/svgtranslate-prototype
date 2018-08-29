@@ -128,15 +128,53 @@ SettingsDialog.prototype.getSettingsElement = function () {
     window.localStorage.setItem( 'langs', JSON.stringify(selected ) );
   });
 
+  var toolItems = [
+    new OO.ui.MenuOptionWidget( {
+      data: 'en',
+      label: 'English'
+    } ),
+    new OO.ui.MenuOptionWidget( {
+      data: 'ja',
+      label: 'Japanese'
+    } ),
+    new OO.ui.MenuOptionWidget( {
+      data: 'it',
+      label: 'Italian'
+    } ),
+    new OO.ui.MenuOptionWidget( {
+      data: 'hi',
+      label: 'Hindi',
+    } ),
+    new OO.ui.MenuOptionWidget( {
+      data: 'ur',
+      label: 'Urdu'
+    } )
+  ];
+
+  var toolLang = new OO.ui.DropdownWidget( {
+    label: 'Select one',
+    menu: { items: toolItems }
+  } );
+
   var field = new OO.ui.FieldLayout(
     langSelector, {
       align: 'top',
-      label: 'Preferred languages',
+      label: 'Preferred languages to translate to/from:',
       help: "These languages are show near the top when you're switching between them in the translate page",
       helpInline: true
     }
+  );
+
+  var toolField = new OO.ui.FieldLayout(
+    toolLang, {
+      align: 'top',
+      label: 'Tool\'s language:',
+      help: "The tool itself will be shown in this language",
+      helpInline: true
+    }
   )
-  return field.$element;
+
+  return [ toolField.$element, field.$element ];
 }
 
 SettingsDialog.prototype.getActionProcess = function ( action ) {
