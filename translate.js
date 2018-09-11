@@ -139,7 +139,7 @@ function enableUploadButton() {
 
 function uploadClick() {
   if ( window.localStorage.getItem( 'logged') !== 'in' ) {
-    OO.ui.confirm( 'You will be redirected to Commons in order to confirm your indentity. SVG Translate will use this to upload your translations.' ).done( function () {
+    OO.ui.confirm( 'You will be redirected to Commons in order to confirm your indentity. Your translations will be automatically uploaded once you\'ve logged in.' ).done( function () {
       window.upload.setLabel('Upload to Commons')
       showUploadDialog();
     });
