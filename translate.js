@@ -24,10 +24,13 @@ function showTranslationFields( svg ) {
 
     var nOfTranslations = 0;
 
-    tspans.forEach( function ( tspan ) {
+    tspans.forEach( function ( tspan, i ) {
       if ( tspan === 'hr' ) {
         $( '#translation-form').append( $('<hr>'));
       } else {
+        if (tspan.id === '' ) {
+          tspan.id = 'temp-' + i;
+        }
         var field = addTranslationField( tspan.innerHTML, tspan.id );
         tspan.addEventListener( 'mouseover', function () {
           $( field ).find('input').css( 'background-color', '#fef6e7');
