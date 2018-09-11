@@ -24,6 +24,10 @@ nav {
   background: var( --wmui-color-base100 );
 }
 
+.translate-tool {
+  border-top: 3px solid #36c;
+}
+
 .toolforge-logo {
 	-webkit-filter: grayscale(100%);
 	filter: grayscale(100%);
