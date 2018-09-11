@@ -123,7 +123,7 @@ function addButtons() {
 
   if ( window.localStorage.getItem( 'logged') !== 'in' ) {
       window.upload.setDisabled( true );
-      window.upload.setLabel( 'Login to Upload to Commons')
+      window.upload.setLabel( 'Upload to Commons'); // Was 'login to upload to commons'
   }
 
   $( '#button-holder').append( window.upload.$element, download.$element);
