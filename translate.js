@@ -158,7 +158,7 @@ windowManager.addWindows( [ messageDialog ] );
 // Configure the message dialog.
 windowManager.openWindow( messageDialog, {
   title: 'Thank you!',
-  message: 'Your translations has been uploaded.',
+  message: 'Your translations have been uploaded.',
   actions: [
     { label: 'See file on Commons', action: 'commons', icon: 'logoWikimediaCommons' },
     { label: 'Translate to another language', action: 'lang', icon: 'language', flags:['pogressive'] },
