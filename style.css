@@ -25,7 +25,7 @@ nav {
 }
 
 .translate-tool {
-  border-top: 3px solid #36c;
+  /*border-top: 3px solid #36c;*/
 }
 
 .toolforge-logo {
@@ -62,6 +62,27 @@ nav {
 
 #lang-to > div {
   float: right;
+}
+
+#progress-holder {
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  position: fixed;
+}
+
+.oo-ui-progressBarWidget{
+  margin: 0;
+  padding: 0;
+  height: 4px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
 }
 
 /* Bootstrap override */

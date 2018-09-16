@@ -58,7 +58,7 @@ function addProgressBar( total) {
     align: 'top'
   } );
 
-  $( '#progress-holder').append( window.progressField.$element );
+  $( '#progress-holder').append( window.progress.$element );
 }
 
 function addTranslationField( label, id ) {
@@ -191,7 +191,7 @@ function validateAll() {
     }
   });
 
-  window.progressField.setLabel( done + ' of ' + window.progressTotal + ' translations')
+  //window.progressField.setLabel( done + ' of ' + window.progressTotal + ' translations')
   window.progress.setProgress( ( ( done * 1.0 ) / window.progressTotal ) * 100);
 
   return ok;
