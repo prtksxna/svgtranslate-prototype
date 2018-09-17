@@ -152,7 +152,6 @@ function uploadClick() {
 }
 
 function showUploadDialog() {
-  OO.ui.MessageDialog.static.escapable = false;
   var messageDialog = new OO.ui.MessageDialog();
 var windowManager = new OO.ui.WindowManager();
 $( 'body' ).append( windowManager.$element );
@@ -164,7 +163,7 @@ windowManager.openWindow( messageDialog, {
   message: 'Your translations have been uploaded.',
   actions: [
     { label: 'See file on Commons', action: 'commons', icon: 'logoWikimediaCommons' },
-    { label: 'Translate to another language', action: 'lang', icon: 'language', flags:['pogressive'] },
+    //{ label: 'Translate to another language', action: 'lang', icon: 'language', flags:['pogressive'] },
     { label: 'Translate another image', action: 'translate', icon: 'image', flags:['pogressive'] },
   ],
 } ).closed.then( function ( data ) {
