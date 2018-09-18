@@ -1,7 +1,12 @@
 // close tutorial
 $('.close').on('click', function () {
   $('.tutorial').slideUp();
+  window.localStorage.setItem( 'tutorial', 'no' );
 })
+
+if ( window.localStorage.getItem( 'tutorial' ) === 'no' ) {
+  $('.tutorial').hide();
+}
 
 // Select file form
 var translateButton = new OO.ui.ButtonWidget( {
