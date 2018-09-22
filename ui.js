@@ -91,8 +91,8 @@ SettingsDialog.prototype.getSettingsElement = function () {
   if ( window.localStorage.getItem('langs') === null ) {
     var def = [
       {
-        data: 'hi',
-        label: 'Hindi'
+        data: 'it',
+        label: 'Italiano'
       },
       {
         data: 'en',
@@ -101,31 +101,9 @@ SettingsDialog.prototype.getSettingsElement = function () {
     ];
     window.localStorage.setItem( 'langs', JSON.stringify( def ) );
   }
-
   var langSelector = new OO.ui.MenuTagMultiselectWidget( {
     selected: JSON.parse( window.localStorage.getItem( 'langs' ) ),
-    options: [
-      {
-        data: 'hi',
-        label: 'Hindi'
-      },
-      {
-        data: 'en',
-        label: 'English'
-      },
-      {
-        data: 'ur',
-        label: 'Urdu',
-      },
-      {
-        data: 'it',
-        label: 'Italian'
-      },
-      {
-        data: 'ja',
-        label: 'Japanese'
-      }
-    ]
+    options: window.getLangs()
   } );
 
   langSelector.on( 'change', function ( items ) {
@@ -138,28 +116,7 @@ SettingsDialog.prototype.getSettingsElement = function () {
     window.localStorage.setItem( 'langs', JSON.stringify(selected ) );
   });
 
-  var toolItems = [
-    new OO.ui.MenuOptionWidget( {
-      data: 'en',
-      label: 'English'
-    } ),
-    new OO.ui.MenuOptionWidget( {
-      data: 'ja',
-      label: 'Japanese'
-    } ),
-    new OO.ui.MenuOptionWidget( {
-      data: 'it',
-      label: 'Italian'
-    } ),
-    new OO.ui.MenuOptionWidget( {
-      data: 'hi',
-      label: 'Hindi',
-    } ),
-    new OO.ui.MenuOptionWidget( {
-      data: 'ur',
-      label: 'Urdu'
-    } )
-  ];
+  var toolItems = window.getLangs(true);
 
   var toolLang = new OO.ui.DropdownWidget( {
     label: 'Select one',

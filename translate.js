@@ -210,23 +210,9 @@ function getN() {
 
 function addLangSelector() {
   var fromItems = [
-    new OO.ui.MenuSectionOptionWidget( {
-      label: 'Recently used'
-    } ),
     new OO.ui.MenuOptionWidget( {
       data: 'en',
       label: 'English',
-    } ),
-    new OO.ui.MenuSectionOptionWidget( {
-      label: 'Others'
-    } ),
-    new OO.ui.MenuOptionWidget( {
-      data: 'ur',
-      label: 'Urdu'
-    } ),
-    new OO.ui.MenuOptionWidget( {
-      data: 'ja',
-      label: 'Japanese'
     } ),
   ];
 
@@ -235,33 +221,21 @@ function addLangSelector() {
     menu: { items: fromItems }
   } );
 
-  var toItems = [
-    new OO.ui.MenuSectionOptionWidget( {
-      label: 'Recently used'
-    } ),
-    new OO.ui.MenuOptionWidget( {
-      data: 'hi',
-      label: 'Hindi',
-    } ),
-    new OO.ui.MenuSectionOptionWidget( {
-      label: 'Already translated'
-    } ),
-    new OO.ui.MenuOptionWidget( {
-      data: 'ur',
-      label: 'Urdu'
-    } ),
-    new OO.ui.MenuOptionWidget( {
-      data: 'ja',
-      label: 'Japanese'
-    } ),
-    new OO.ui.MenuSectionOptionWidget( {
-      label: 'Others'
-    } ),
-    new OO.ui.MenuOptionWidget( {
-      data: 'it',
-      label: 'Italian'
-    } )
-  ];
+  var toItems = window.getLangs(true);
+  toItems.unshift(new OO.ui.MenuSectionOptionWidget({
+    label: "Your languages"
+  }))
+
+  JSON.parse(window.localStorage.getItem('langs')).forEach( function (lang) {
+    toItems.unshift( new OO.ui.MenuOptionWidget( {
+      label: lang.label,
+      data: lang.data
+    }))
+  })
+
+  toItems.unshift(new OO.ui.MenuSectionOptionWidget({
+    label: "Others"
+  }))
 
   var to = new OO.ui.DropdownWidget( {
     label: 'Select one',
@@ -270,7 +244,7 @@ function addLangSelector() {
 
 
   from.getMenu().selectItemByData( 'en');
-  to.getMenu().selectItemByData( 'hi');
+  to.getMenu().selectItemByData( 'it');
 
   to.getMenu().on('choose', function () {
     if ( getN() > 0 ) {
