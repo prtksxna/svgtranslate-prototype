@@ -223,7 +223,7 @@ function addLangSelector() {
 
   var toItems = window.getLangs(true);
   toItems.unshift(new OO.ui.MenuSectionOptionWidget({
-    label: "Your languages"
+    label: "Others"
   }))
 
   JSON.parse(window.localStorage.getItem('langs')).forEach( function (lang) {
@@ -234,7 +234,7 @@ function addLangSelector() {
   })
 
   toItems.unshift(new OO.ui.MenuSectionOptionWidget({
-    label: "Others"
+    label: "Preferred languages"
   }))
 
   var to = new OO.ui.DropdownWidget( {
