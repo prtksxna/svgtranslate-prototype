@@ -33,7 +33,7 @@ $( '#select-form' ).append( form.$element );
 // Login
 showAccountMenu = function () {
   $logout = $( '<a>' ).text( 'Logout (TestUser)').attr( 'href', '#' );
-  $lang = $( '<a>' ).text( 'Language settings').attr( 'href', '#' );
+  $lang = $( '<a>' ).text( 'Language settings').attr( 'href', '#' ).attr('id','lang-settings');
   $('nav').empty().append(
     $lang,
     '&nbsp;&middot;&nbsp;',
@@ -49,6 +49,10 @@ showAccountMenu = function () {
     openLangSettings();
   } );
 }
+
+$('#lang-settings').on( 'click', function () {
+  openLangSettings();
+} );
 
 $( '#login' ).on( 'click', function () {
   var menu = $( this ).parent();
