@@ -6,6 +6,23 @@ mySVG.addEventListener("load",function() {
       showTranslationFields( svgDoc )
  }, false);
 
+$(function () {
+  // A popup widget.
+  window.popup = new OO.ui.PopupWidget( {
+     $content: $( '<div>Pick the language that you’d like to translate in.</div>' ),
+     padded: true,
+     width: 250,
+     height: 60,
+     autoClose: true,
+     hideWhenOutOfView: true
+  } );
+
+  $( 'body' ).append( popup.$element );
+  // To display the popup, toggle the visibility to 'true'.
+  popup.toggle( true );
+  popup.$clippable.css('overflow', 'visible');
+
+})
 
 function showTranslationFields( svg ) {
     var texts = svg.getElementsByTagName( 'text' );
@@ -141,6 +158,13 @@ function enableUploadButton() {
 }
 
 function uploadClick() {
+  $('.alert').slideDown();
+
+  $('html, body').animate({
+        scrollTop: 0
+    }, 100);
+  return;
+
   if ( window.localStorage.getItem( 'logged') !== 'in' ) {
     OO.ui.confirm( 'You will be redirected to Commons in order to confirm your indentity. Your translations will be automatically uploaded once you\'ve logged in.' ).done( function () {
       window.upload.setLabel('Upload to Commons')
@@ -258,5 +282,12 @@ function addLangSelector() {
 
   $('#lang-from').append( from.$element );
   $('#lang-to').append( to.$element );
+
+  var toOffset = $('#lang-to').offset();
+  window.popup.$element.css( {
+    bottom: '',
+    top: (toOffset.top - 49) + 'px',
+    left: (toOffset.left + 35) + 'px'
+  })
 
 }
