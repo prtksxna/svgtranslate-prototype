@@ -115,6 +115,12 @@ nav {
   border: none !important;
   border-radius: 0 !important;
   background-color: transparent !important;
+  overflow: visible !important;
+}
+
+.oo-ui-progressBarWidget-bar {
+  box-shadow: 0 0 10px #36c;
+  height: 6px !important;
 }
 
 /* Bootstrap override */
