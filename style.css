@@ -105,6 +105,23 @@ nav {
   margin-right: 15px;
 }
 
+.alert {
+  display: none;
+  background: #d5fdf4;
+  color: #14866d;
+  border: 1px solid #14866d;
+}
+
+.alert a {
+  color: #14866d;
+  text-decoration: underline;
+}
+
+.alert .pull-right {
+  float: right;
+  font-weight: bold;
+}
+
 /* OOUI override */
 .oo-ui-progressBarWidget{
   margin: 0;
@@ -121,6 +138,15 @@ nav {
 .oo-ui-progressBarWidget-bar {
   box-shadow: 0 0 10px #36c;
   height: 6px !important;
+}
+
+.oo-ui-popupWidget-popup {
+  background-color: #36c !important;
+  color: #fff !important;
+}
+
+.oo-ui-popupWidget-anchored-bottom .oo-ui-popupWidget-anchor:after {
+  border-top-color: #36c !important;
 }
 
 /* Bootstrap override */
