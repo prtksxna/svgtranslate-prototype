@@ -56,7 +56,7 @@ $('#lang-settings').on( 'click', function () {
 
 $( '#login' ).on( 'click', function () {
   var menu = $( this ).parent();
-  OO.ui.confirm( 'You will be redirected to Commons in order to confirm your indentity. SVG Translate will use this to upload your translations.' ).done( function () {
+  OO.ui.confirm( 'You will be redirected to Commons in order to confirm your identity. SVG Translate will use this to upload your translations.' ).done( function () {
     window.localStorage.setItem( 'logged', 'in' );
     window.location = window.location.pathname;
     showAccountMenu();
