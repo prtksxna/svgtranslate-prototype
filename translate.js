@@ -9,7 +9,7 @@ mySVG.addEventListener("load",function() {
 $(function () {
   // A popup widget.
   window.popup = new OO.ui.PopupWidget( {
-     $content: $( '<div>Pick the language that you’d like to translate in.</div>' ),
+     $content: $( '<div>Pick the language that you’d like to translate to.</div>' ),
      padded: true,
      width: 250,
      height: 60,
@@ -166,7 +166,7 @@ function uploadClick() {
   return;
 
   if ( window.localStorage.getItem( 'logged') !== 'in' ) {
-    OO.ui.confirm( 'You will be redirected to Commons in order to confirm your indentity. Your translations will be automatically uploaded once you\'ve logged in.' ).done( function () {
+    OO.ui.confirm( 'You will be redirected to Commons in order to confirm your identity. Your translations will be automatically uploaded once you\'ve logged in.' ).done( function () {
       window.upload.setLabel('Upload to Commons')
       showUploadDialog();
     });
