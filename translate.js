@@ -84,6 +84,7 @@ function addTranslationField( label, id ) {
     validate: 'non-empty'
   });
   text.on( 'change', function ( v ) {
+    window.uploaded = false;
     if ( v === '') {
       el.innerHTML = label;
     } else {
@@ -157,7 +158,7 @@ function enableUploadButton() {
 
 function uploadClick() {
   $('.alert').slideDown();
-
+  window.uploaded = true;
   $('html, body').animate({
         scrollTop: 0
     }, 100);
@@ -267,14 +268,27 @@ function addLangSelector() {
 
   from.getMenu().selectItemByData( 'en');
   to.getMenu().selectItemByData( 'it');
-
-  to.getMenu().on('choose', function () {
-    if ( getN() > 0 ) {
-      OO.ui.confirm( 'Switching to another language will lose the '+getN()+' translation(s) you\'ve already made. Are you sure you want to continue?' ).done(function () {
-        window.textInputs.forEach( function (t) {
-          t.setValue('');
-        });
+  window.prevToValue = 'it';
+  to.getMenu().on('choose', function (i) {
+    if ( getN() > 0 && window.uploaded === false) {
+      OO.ui.confirm( 'Switching to another language will lose the '+getN()+' translation(s) you\'ve already made. Are you sure you want to continue?' ).done(function (c) {
+        if (c) {
+          window.textInputs.forEach( function (t) {
+            t.setValue('');
+          });
+          window.prevToValue = i.data;
+        } else {
+          to.getMenu().selectItemByData( window.prevToValue )
+        }
       });
+    } else if ( window.uploaded === true ) {
+      window.textInputs.forEach( function (t) {
+        t.setValue('');
+        window.setTimeout( function() {
+          t.setValidityFlag( true );
+        }, 500 );
+      });
+      window.prevToValue = i.data;
     }
   })
 
