@@ -115,12 +115,10 @@ function addTranslationField( label, id ) {
 }
 
 function addButtons() {
-  var download = new OO.ui.ButtonWidget( {
-    label: 'Download',
-    icon: 'download'
-  } );
+  var downloadA = $('<a>').text('Download').attr('href','javascript:void(0);');
+  var download = $('<span>').append( downloadA, ' or ').css('margin-top','7px');
 
-  download.on( 'click', function () {
+  downloadA.on( 'click', function () {
     var svgData = (new XMLSerializer).serializeToString(window.svgDoc)
     var svgBlob = new Blob([svgData], {type:"image/svg+xml;charset=utf-8"});
     var svgUrl = URL.createObjectURL(svgBlob);
@@ -146,7 +144,7 @@ function addButtons() {
       window.upload.setLabel( 'Upload to Commons'); // Was 'login to upload to commons'
   }
 
-  $( '#button-holder').append( window.upload.$element, download.$element);
+  $( '#button-holder').append( window.upload.$element, download);
 }
 
 function enableUploadButton() {
