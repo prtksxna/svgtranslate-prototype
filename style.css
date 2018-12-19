@@ -108,12 +108,12 @@ nav {
 .alert {
   display: none;
   background: #d5fdf4;
-  color: #14866d;
+  color: #000;
   border: 1px solid #14866d;
 }
 
 .alert a {
-  color: #14866d;
+  color: #000;
   text-decoration: underline;
 }
 
