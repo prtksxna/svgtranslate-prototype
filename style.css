@@ -122,6 +122,10 @@ nav {
   font-weight: bold;
 }
 
+.error-text {
+  color: #b32424;
+}
+
 /* OOUI override */
 .oo-ui-progressBarWidget{
   margin: 0;
