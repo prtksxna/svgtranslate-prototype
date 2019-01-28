@@ -126,6 +126,13 @@ nav {
   color: #b32424;
 }
 
+.btn {
+  text-decoration: none !important;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  background: rgba( 0, 0, 0, 0.1 );
+}
+
 /* OOUI override */
 .oo-ui-progressBarWidget{
   margin: 0;
